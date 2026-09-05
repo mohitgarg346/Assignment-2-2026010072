@@ -4,25 +4,22 @@ using namespace std;
 int main()
 {
     int a[20][3], b[20][3], c[50][3];
-    int i, j, k, m, n, p, q;
+    int i, j, k;
+    int m, n, p, q;
     int count = 0;
 
-    // First matrix size
     cout << "Enter rows and columns of first matrix: ";
     cin >> m >> n;
 
-    // Second matrix size
     cout << "Enter rows and columns of second matrix: ";
     cin >> p >> q;
 
-    // Check multiplication
     if (n != p)
     {
         cout << "Matrix multiplication is not possible.";
         return 0;
     }
 
-    // First matrix
     cout << "Enter number of non-zero elements of first matrix: ";
     cin >> a[0][2];
 
@@ -36,7 +33,6 @@ int main()
         cin >> a[i][0] >> a[i][1] >> a[i][2];
     }
 
-    // Second matrix
     cout << "Enter number of non-zero elements of second matrix: ";
     cin >> b[0][2];
 
@@ -50,11 +46,9 @@ int main()
         cin >> b[i][0] >> b[i][1] >> b[i][2];
     }
 
-    // Result matrix size
     c[0][0] = m;
     c[0][1] = q;
 
-    // Multiplication
     for (i = 1; i <= a[0][2]; i++)
     {
         for (j = 1; j <= b[0][2]; j++)
@@ -67,18 +61,16 @@ int main()
 
                 int found = 0;
 
-                // Check same position
                 for (k = 1; k <= count; k++)
                 {
                     if (c[k][0] == row && c[k][1] == col)
                     {
-                        c[k][2] += value;
+                        c[k][2] = c[k][2] + value;
                         found = 1;
                         break;
                     }
                 }
 
-                // New element
                 if (found == 0)
                 {
                     count++;
@@ -88,5 +80,19 @@ int main()
                 }
             }
         }
-        c[0][2] = count;
+    }
 
+    c[0][2] = count;
+
+    cout << "\nResultant Sparse Matrix:\n";
+    cout << "Row Column Value\n";
+
+    for (i = 0; i <= count; i++)
+    {
+        cout << c[i][0] << "    "
+             << c[i][1] << "     "
+             << c[i][2] << endl;
+    }
+
+    return 0;
+}
