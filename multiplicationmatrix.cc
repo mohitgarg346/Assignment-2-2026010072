@@ -88,13 +88,5 @@ int main()
                 }
             }
         }
-    }
+        c[0][2] = count;
 
-    c[0][2] = count;
-
-    // Display result
-    cout << "\nResultant Matrix in Triplet Form:\n";
-
-    for (i = 0; i <= c[0][2]; i++)
-    {
-        cout << c[i][0] << " "
