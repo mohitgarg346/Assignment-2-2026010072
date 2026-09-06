@@ -17,13 +17,9 @@ int main()
     {
         cin >> a[i][0] >> a[i][1] >> a[i][2];
     }
-
-    // Header of transpose
     b[0][0] = a[0][1];
     b[0][1] = a[0][0];
     b[0][2] = a[0][2];
-
-    // Transpose
     for (i = 0; i < a[0][1]; i++)
     {
         for (j = 1; j <= n; j++)
